@@ -4,15 +4,11 @@ public class Negozio {
 
 	public static void main(String[] args) {
 		
-		Prodotto p1 = new Prodotto();//costruito un oggetto di tipo Prodotto
-
-		p1.codProdotto = 1;
-		p1.nome = "Giacca";
-		p1.prezzo = 19.99;
+		Prodotto p1 = new Prodotto(1,"Giacca", 19.99);//costruito un oggetto di tipo Prodotto
 		
 		System.out.println(p1.stampa());
 		
-		Prodotto p2 = new Prodotto();//costruito un oggetto di tipo Prodotto
+		Prodotto p2 = new Prodotto(1,"Giacca", 19.99);//costruito un oggetto di tipo Prodotto
 
 		p2.codProdotto = 2;
 		p2.nome = "Maglia";
