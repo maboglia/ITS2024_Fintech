@@ -15,6 +15,12 @@ public class TitoliTester {
 		ArrayList<Titolo> titoli = dao.getTitoli();
 		
 		for (Titolo titolo : titoli) {
+			
+			if (!titolo.getCapitalMLN().isEmpty()) {
+				int capitale = Integer.parseInt(titolo.getCapitalMLN());
+				
+				dao.modificaTitoli(titolo.getId(), capitale);
+			}
 			System.out.println(titolo);
 		}
 
