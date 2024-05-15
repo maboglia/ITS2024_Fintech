@@ -48,7 +48,14 @@ public class StudentDAOImpl implements StudentDAO {
 
 	@Override
 	public Student findById(int id) {
-		// TODO Auto-generated method stub
+		
+		List<Student> all = findAll();
+		
+		for (Student student : all) {
+			if (student.getMatricola() == id)
+				return student;
+		}
+		
 		return null;
 	}
 

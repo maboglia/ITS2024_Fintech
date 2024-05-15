@@ -12,15 +12,19 @@ public class StudentDemo {
 
 		StudentDAO dao = new StudentDAOImpl();
 		
-		List<String> studentiFiltrati =  dao.findAll()
-			.stream()
-			.filter(s -> s.getNome().endsWith("o"))
-			.filter(s -> s.getCognome().toLowerCase().startsWith("r"))
-			.map(s -> s.getCognome())
-			.toList();
-			//.forEach(System.out::println);//consumes / collect
+		System.out.println(dao.findById(1));
 		
-		studentiFiltrati.forEach(System.out::println);
+		
+//		
+//		List<String> studentiFiltrati =  dao.findAll()
+//			.stream()
+//			.filter(s -> s.getNome().endsWith("o"))
+//			.filter(s -> s.getCognome().toLowerCase().startsWith("r"))
+//			.map(s -> s.getCognome())
+//			.toList();
+//			//.forEach(System.out::println);//consumes / collect
+//		
+//		studentiFiltrati.forEach(System.out::println);
 
 	}
 
