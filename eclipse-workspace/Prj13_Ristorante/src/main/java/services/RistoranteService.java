@@ -14,4 +14,13 @@ public class RistoranteService {
 		return dao.getPiatti();
 	} 
 	
+	public Piatto getPiattoById(int id) {
+		return dao.getPiattoById(id);
+	}
+
+	public void addPiatto(Piatto p) {
+		dao.addPiatto(p);
+		
+	}
+	
 }

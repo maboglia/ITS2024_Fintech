@@ -50,4 +50,58 @@ public class PiattoDAOImpl implements PiattoDAO{
 		return piatti;
 	}
 
+
+	@Override
+	public Piatto getPiattoById(int id) {
+		
+		try {
+			ps = miaConn.getConn().prepareStatement(FIND_ONE);
+			ps.setInt(1, id);
+			rs = ps.executeQuery();
+			
+			boolean risultato = rs.next();
+			System.out.println(risultato);
+			if (risultato) {
+				Piatto p = new Piatto();
+				p.setId(rs.getInt("id"));
+				p.setNome(rs.getString("nome"));
+				p.setPrezzo(rs.getDouble("prezzo"));
+				
+				Categoria c = new Categoria();
+				c.setId(rs.getInt("tipo_piatto_id"));
+				p.setCategoria(c);
+				
+				return p;
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
+
+
+	@Override
+	public void addPiatto(Piatto p) {
+
+		try {
+			ps = miaConn.getConn().prepareStatement(ADD);
+			ps.setString(1, p.getNome());
+			ps.setDouble(2, p.getPrezzo());
+			ps.setInt(3, p.getCategoria().getId());
+			ps.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+
 }
