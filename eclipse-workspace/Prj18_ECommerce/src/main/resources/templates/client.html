@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<script>
+
+	const URL = '/api/prodotti'
+	
+	fetch(URL).then(res => res.json())
+		.then(prodotti => {
+			for (const prodotto of prodotti){
+				console.log(prodotto)	
+				const DIV = document.createElement('div')
+				DIV.setAttribute('style', 'color:red; font-size:2em')
+				DIV.textContent = prodotto.productName
+				document.body.append(DIV)
+			}
+		})
+
+</script>
+
+</body>
+</html>
