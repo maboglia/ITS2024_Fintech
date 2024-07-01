@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.CapoAbbigliamento;
-import model.Maglia;
+import model.*;
 import services.CapiService;
 
 import java.io.IOException;
@@ -41,8 +41,7 @@ public class MaglieCtrl extends HttpServlet {
 		
 		JSONArray array = new JSONArray(capi);
 		
-			
-			response.getWriter().print(array.toString());
+		response.getWriter().print(array.toString());
 			
 		
 		
@@ -52,16 +51,34 @@ public class MaglieCtrl extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+			
+			CapoAbbigliamento capo = null;
 		
 		if (request.getParameter("tipo")!=null) {
 			String tipoCapo = request.getParameter("tipo");
+			
+			
+			switch (tipoCapo) {
+				case "maglia":
+					capo = new Maglia();
+					break;
+				case "giacca":
+					capo = new Giacca();
+					break;	
+				case "pantalone":
+					capo = new Pantalone();
+					break;	
+				default:
+					break;
+			}
+					
 			String prezzo = request.getParameter("prezzo");
 			String taglia = request.getParameter("taglia");
 			System.out.println(tipoCapo+prezzo+taglia);
-			Maglia m1 = new Maglia();
-			m1.setPrezzo(Double.parseDouble(prezzo));
-			this.service.addCapo(m1);
+			
+			capo.setPrezzo(Double.parseDouble(prezzo));
+			capo.setTaglia(Taglie.valueOf(taglia));
+			this.service.addCapo(capo);
 			
 		}
 
