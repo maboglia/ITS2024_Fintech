@@ -1,0 +1,26 @@
+<h2>Add capo</h2>
+
+<form method="post" action="maglie">
+
+	<label for="maglia">Maglia</label>
+	<input type="radio" id="maglia" name="tipo" value="maglia">
+
+	<label for="giacca">Giacca</label>
+	<input type="radio" id="giacca" name="tipo" value="giacca">
+
+	<label for="prezzo">Prezzo</label>
+	<input type="number" step="0.01" name="prezzo" id="prezzo">
+
+	<label for="taglia">Taglia</label>
+	<select name="taglia" id="taglia">
+		<option>Scegli taglia</option>
+		<option>XS</option>
+		<option>S</option>
+		<option>M</option>
+		<option>L</option>
+		<option>XL</option>
+	</select>
+
+	<input type="submit" value="Add capo">
+
+</form>
