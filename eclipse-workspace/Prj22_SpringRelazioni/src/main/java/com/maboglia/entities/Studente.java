@@ -1,5 +1,7 @@
 package com.maboglia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class Studente {
 
 	@ManyToOne
 	@JoinColumn(name = "corso_id")
+	@JsonIgnore
 	private Corso corso;
 	
 	public Long getId() {

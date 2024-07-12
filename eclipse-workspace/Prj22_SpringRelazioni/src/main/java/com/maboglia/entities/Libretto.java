@@ -1,5 +1,7 @@
 package com.maboglia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +22,7 @@ public class Libretto {
 	
 	@OneToOne
 	@JoinColumn(name = "studente_id")
+	@JsonIgnore
 	private Studente studente;
 
 	

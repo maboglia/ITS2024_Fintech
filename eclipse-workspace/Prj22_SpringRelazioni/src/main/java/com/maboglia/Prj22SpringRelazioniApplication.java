@@ -17,7 +17,7 @@ public class Prj22SpringRelazioniApplication {
 		SpringApplication.run(Prj22SpringRelazioniApplication.class, args);
 	}
 
-	@Bean
+	//@Bean
 	public CommandLineRunner gira(StudentiService service) {
 		
 		return new CommandLineRunner() {
